@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Home",
+    "path": "/",
+    "icon": "home"
+  },
+  {
+    "title": "Assessments",
+    "path": "/assessments",
+    "icon": "assessments",
+    "children": [
+      {
+        "title": "Practice Tests",
+        "path": "/assessments/practice-tests"
+      },
+      {
+        "title": "Mock Exams",
+        "path": "/assessments/mock-exams"
+      }
+    ]
+  },
+  {
+    "title": "Lessons",
+    "path": "/lessons",
+    "icon": "lessons"
+  },
+  {
+    "title": "Progress",
+    "path": "/progress",
+    "icon": "progress"
+  },
+  {
+    "title": "Doubt Solver",
+    "path": "/doubt-solver",
+    "icon": "doubt-solver"
+  }
+]
