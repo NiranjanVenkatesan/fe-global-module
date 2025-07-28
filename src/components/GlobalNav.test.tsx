@@ -4,8 +4,9 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 import GlobalNav from './GlobalNav';
+import navigation from '../navigation.json';
 
-test('renders the GlobalNav component', () => {
+test('renders the GlobalNav component with dynamic navigation items', () => {
   render(
     <Provider store={store}>
       <ChakraProvider>
@@ -13,6 +14,9 @@ test('renders the GlobalNav component', () => {
       </ChakraProvider>
     </Provider>
   );
-  const logoElement = screen.getByText(/Logo/i);
-  expect(logoElement).toBeInTheDocument();
+
+  navigation.forEach((item) => {
+    const navElement = screen.getByLabelText(item.title);
+    expect(navElement).toBeInTheDocument();
+  });
 });
