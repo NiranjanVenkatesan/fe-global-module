@@ -24,10 +24,12 @@ import { toggleMenu } from '../store/uiSlice';
 import ProfileMenu from './ProfileMenu';
 import Notifications from './Notifications';
 import navigation from '../navigation.json';
+import { Navigation } from '../types/navigation';
 
 const GlobalNav: React.FC = () => {
   const dispatch = useDispatch();
   const isMenuOpen = useSelector((state: RootState) => state.ui.isMenuOpen);
+  const navItems = navigation as Navigation;
 
   const handleToggle = () => {
     dispatch(toggleMenu());
@@ -59,7 +61,7 @@ const GlobalNav: React.FC = () => {
           <DrawerCloseButton aria-label="Close menu" />
           <DrawerHeader>Menu</DrawerHeader>
           <DrawerBody>
-            {navigation.map((item) => (
+            {navItems.map((item) => (
               <Button key={item.title} variant="ghost" width="full" my={2}>
                 {item.title}
               </Button>
@@ -74,7 +76,7 @@ const GlobalNav: React.FC = () => {
         alignItems="center"
         flexGrow={1}
       >
-        {navigation.map((item) =>
+        {navItems.map((item) =>
           item.children ? (
             <Menu key={item.title}>
               <MenuButton as={Button} colorScheme="teal" aria-label={item.title}>
